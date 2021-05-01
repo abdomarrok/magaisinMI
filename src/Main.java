@@ -1,5 +1,5 @@
 
-package mymagasin;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -31,7 +31,9 @@ public class Main extends Application {
  
      @Override
     public void start(Stage stage) throws Exception {
-           Parent root =FXMLLoader.load(getClass().getResource("login.fxml"));
+           Parent root;
+         
+        root = FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/login.fxml"));
             scene = new Scene(root);
             stage.setTitle("magsin MI");
             stage.setMinWidth(MINIMUM_WINDOW_WIDTH);

@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.input.MouseEvent;
 
 
 /**
@@ -52,6 +53,7 @@ public class LoginController extends AnchorPane implements Initializable {
         password.setPromptText("password");
         
     }        
+    @FXML
     public void processLogin(ActionEvent event) throws IOException {  
         
       boolean login_test=false;
@@ -93,7 +95,7 @@ public class LoginController extends AnchorPane implements Initializable {
     
     public void showProfile(ActionEvent event){
         try {
-            root =FXMLLoader.load(getClass().getResource("profile.fxml"));
+            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/profile.fxml"));
             scene = new Scene(root); 
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -103,6 +105,10 @@ public class LoginController extends AnchorPane implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    }
+
+    @FXML
+    private void processLogin(MouseEvent event) {
     }
     
      
