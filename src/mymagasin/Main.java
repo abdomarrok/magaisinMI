@@ -1,5 +1,5 @@
 
-package demo;
+package mymagasin;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -10,15 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
-/**
- * Main Application. This class handles navigation and user session.
- */
 public class Main extends Application {
 
-    /**
-     *
-     */
     public Stage stage;
     private Scene scene;
      @FXML
