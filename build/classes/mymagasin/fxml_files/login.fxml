@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="500.0" styleClass="background" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.LoginController">
+  <children>
+    <AnchorPane id="anchorPane2" layoutY="232.0" prefHeight="152.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="131.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="232.0">
+      <children>
+        <VBox id="VBox" alignment="CENTER" layoutX="71.5" layoutY="40.5" prefHeight="42.0" prefWidth="415.0" spacing="5.0" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="39.0" />
+    <PasswordField id="passwordField1" fx:id="password" layoutX="49.0" layoutY="115.0" prefHeight="30.0" prefWidth="400.0" />
+    <Label id="label1" alignment="CENTER" layoutX="49.0" layoutY="25.0" text="Username" />
+    <Label id="label1" alignment="CENTER" layoutX="51.0" layoutY="97.0" text="Password" />
+    <TextField id="textField1" fx:id="userId" layoutX="51.0" layoutY="49.0" prefHeight="30.0" prefWidth="400.0" />
+      </children>
+    </AnchorPane>
+    <Button id="button1" fx:id="login" defaultButton="true" layoutX="40.0" layoutY="390.0" onAction="#processLogin" onMouseClicked="#processLogin" prefHeight="70.0" prefWidth="400.0" text="Login" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="410.0" />
+    <HBox id="hBox1" alignment="CENTER" layoutX="40.0" layoutY="356.0" prefHeight="25.0" prefWidth="418.0" AnchorPane.bottomAnchor="119.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="42.0">
+      <children>
+        <Label id="label2" fx:id="errorMessage" />
+      </children>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@Login.css" />
+  </stylesheets>
+</AnchorPane>

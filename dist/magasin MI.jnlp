@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="magasin MI.jnlp">
+  <information>
+    <title>magasin MI</title>
+    <vendor>Oracle</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib\mysql-connector-java-5.1.40-bin.jar" size="1030341" download="eager" />
+    <jar href="magasin_MI.jar" size="784145" download="eager" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <applet-desc  width="700" height="550" main-class="com.javafx.main.NoJavaFXFallback"  name="magasin MI" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="700" height="550" main-class="mymagasin.Main"  name="magasin MI" />
+  <update check="background"/>
+</jnlp>
