@@ -25,7 +25,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.input.MouseEvent;
 
 
 /**
@@ -49,7 +48,7 @@ public class LoginController extends AnchorPane implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         errorMessage.setText("");
-        userId.setPromptText("user");
+        userId.setPromptText("username");
         password.setPromptText("password");
         
     }        
@@ -59,9 +58,9 @@ public class LoginController extends AnchorPane implements Initializable {
       boolean login_test=false;
          try {
          String user = userId.getText(); String pass = password.getText();
-                String url = "jdbc:mysql://localhost:3306/mystock";
+             String url="jdbc:mysql://localhost:3306/mystock";
                 Properties info = new Properties();
-            info.put("user", "root");
+             info.put("user", "root");
              info.put("password", "");
         Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
             if (dbConnection != null) {
@@ -106,12 +105,5 @@ public class LoginController extends AnchorPane implements Initializable {
         }
       
     }
-
-    @FXML
-    private void processLogin(MouseEvent event) {
-    }
-    
-     
-
   
-    }
+ }

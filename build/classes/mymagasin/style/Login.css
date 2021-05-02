@@ -18,9 +18,15 @@
 }
 
 .label {
-    -fx-font-family: "Arial";
+    -fx-font-family: "Consolas";
     -fx-font-size: 14;
     -fx-text-fill: rgba(255, 255, 255, 0.4);
+    -fx-effect: dropshadow( one-pass-box , rgba(0, 0, 0, 0.6), 0, 0.0 , 0 , 1 );
+}
+.label:hover {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 18;
+    -fx-text-fill: rgba(255, 255, 255, 1);
     -fx-effect: dropshadow( one-pass-box , rgba(0, 0, 0, 0.6), 0, 0.0 , 0 , 1 );
 }
 
