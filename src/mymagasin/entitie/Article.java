@@ -12,10 +12,11 @@ import javafx.beans.property.SimpleStringProperty;
  * @author on
  */
 public class Article {
-   private SimpleStringProperty id_article,nom_article,qauntitie,unitie,nom_category;
+   private SimpleStringProperty nom_article,qauntitie,unitie,nom_category;
+   private int id_article;
 
-    public Article(String id_article, String nom_article, String qauntitie, String unitie, String nom_category) {
-        this.id_article = new SimpleStringProperty(id_article);
+    public Article(int id_article, String nom_article, String qauntitie, String unitie, String nom_category) {
+        this.id_article = id_article;
         this.nom_article = new SimpleStringProperty(nom_article);
         this.qauntitie = new SimpleStringProperty(qauntitie);
         this.unitie = new SimpleStringProperty(unitie);
@@ -23,12 +24,12 @@ public class Article {
        
     }
 
-    public String getId_article() {
-        return id_article.get();
+    public int getId_article() {
+        return id_article;
     }
 
-    public void setId_article(String id_article) {
-        this.id_article.set(id_article);
+    public void setId_article(int id_article) {
+        this.id_article=id_article;
     }
 
     public String getNom_article() {

@@ -28,7 +28,7 @@ public class GestionDesArticleController implements Initializable {
     @FXML
     private TableView<Article> tableview;
     @FXML
-    private TableColumn<Article, String> id_article;
+    private TableColumn<Article, Integer> id_article;
     @FXML
     private TableColumn<Article, String> nom_article;
     @FXML
@@ -65,7 +65,7 @@ public class GestionDesArticleController implements Initializable {
     private ObservableList<Article> getArticles() {
         
         ObservableList<Article> articls=FXCollections.observableArrayList();
-        articls.add(new Article("id","nomarticle" , "q", "u", "nomcategory"));
+        articls.add(new Article(1,"nomarticle" , "q", "u", "nomcategory"));
         
         return articls;
         
