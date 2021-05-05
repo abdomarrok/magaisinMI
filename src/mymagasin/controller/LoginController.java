@@ -94,7 +94,7 @@ public class LoginController extends AnchorPane implements Initializable {
     
     public void showProfile(ActionEvent event){
         try {
-            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/profile.fxml"));
+            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
             scene = new Scene(root); 
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
