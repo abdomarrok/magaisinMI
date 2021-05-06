@@ -5,15 +5,25 @@
  */
 package mymagasin.controller;
 
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 import java.net.URL;
+import java.sql.DriverManager;
+import static java.sql.JDBCType.NULL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import mymagasin.entitie.Article;
@@ -37,6 +47,22 @@ public class GestionDesArticleController implements Initializable {
     private TableColumn<Article, String> unitie;
     @FXML
     private TableColumn<Article, String> nom_category;
+    @FXML
+    private Label N_A_Label;
+    @FXML
+    private TextField N_A_txt;
+    @FXML
+    private TextField Q_txt;
+    @FXML
+    private Label Q_Label;
+    @FXML
+    private Label U_Label;
+    @FXML
+    private TextField U_txt;
+    @FXML
+    private TextField N_C_txt;
+    @FXML
+    private Label N_C_Label;
 
     /**
      * Initializes the controller class.
@@ -54,21 +80,58 @@ public class GestionDesArticleController implements Initializable {
         tableview.setItems(getArticles());
     }    
 
-    @FXML
-    private void buildData(MouseEvent event) {
-    }
-
-    @FXML
-    private void buildData(ActionEvent event) {
-    }
-
+   
     private ObservableList<Article> getArticles() {
-        
-        ObservableList<Article> articls=FXCollections.observableArrayList();
-        articls.add(new Article(1,"nomarticle" , "q", "u", "nomcategory"));
-        
+         ObservableList<Article> articls=FXCollections.observableArrayList();
+        try {
+            String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                String query;
+                query = "SELECT * FROM article";
+                ResultSet resultSet =statement.executeQuery(query);
+                System.out.println("Successfully connected to MySQL database test");
+                while(resultSet.next())
+                    {     
+            int t_id_article= resultSet.getInt("id_article");
+            String t_nom_article=resultSet.getString("nom_article");
+            String t_qauntitie=resultSet.getString("qauntitie");
+            String t_unitie=resultSet.getString("unitie"); 
+            String t_nom_category=resultSet.getString("nom_category");
+            articls.add(new Article(t_id_article,t_nom_article , t_qauntitie, t_unitie, t_nom_category));
+                    }
+            }
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionDesArticleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return articls;
-        
+    }
+
+    @FXML
+    private void addArticle(MouseEvent event) throws SQLException {
+            String t_nom_article=N_A_txt.getText();
+            String t_qauntitie=Q_txt.getText();
+            String t_unitie=U_txt.getText();
+            String t_nom_category=N_C_txt.getText();
+            String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                String query;
+                System.out.println("before");
+                query = "INSERT INTO article (id_article,nom_article,qauntitie,unitie,nom_category)VALUES ("+"'"+""+"','"+t_nom_article+"','"+t_qauntitie+"','"+t_unitie+"','"+t_nom_category+"')";
+               // query = "INSERT INTO `article` (`id_article`, `nom_article`, `qauntitie`, `unitie`, `nom_category`)" + " VALUES (NULL,"+t_nom_article+","+t_qauntitie+","+t_unitie+","+t_nom_category+")";
+               statement.execute(query);
+               System.out.println("after");
+            }
     }
     
 }

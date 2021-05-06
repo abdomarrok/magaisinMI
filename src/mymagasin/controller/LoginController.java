@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import mymagasin.DBConnection.DBConnection;
 
 
 /**
@@ -62,7 +63,8 @@ public class LoginController extends AnchorPane implements Initializable {
                 Properties info = new Properties();
              info.put("user", "root");
              info.put("password", "");
-        Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+       Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+     
             if (dbConnection != null) {
                 Statement statement =(Statement) dbConnection.createStatement();
                 String query;
