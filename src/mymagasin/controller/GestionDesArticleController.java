@@ -9,7 +9,6 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import java.net.URL;
 import java.sql.DriverManager;
-import static java.sql.JDBCType.NULL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -114,10 +113,26 @@ public class GestionDesArticleController implements Initializable {
 
     @FXML
     private void addArticle(MouseEvent event) throws SQLException {
-            String t_nom_article=N_A_txt.getText();
-            String t_qauntitie=Q_txt.getText();
-            String t_unitie=U_txt.getText();
-            String t_nom_category=N_C_txt.getText();
+            String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                statement.execute("insert into article (nom_article,qauntitie,unitie,nom_category) value ("
+                + "'" + N_A_txt.getText() + "',"
+                + "'" + Integer.valueOf(Q_txt.getText()) + "',"
+                + "'" + U_txt.getText() + "',"
+                + "'" + N_C_txt.getText() + "')");   
+            }      
+            updateArticle1(event);
+    }
+    
+
+    @FXML
+    private void updateArticle1(MouseEvent event) throws SQLException {
+       ObservableList<Article> articls=FXCollections.observableArrayList();
             String url="jdbc:mysql://localhost:3306/mystock";
             Properties info = new Properties();
             info.put("user", "root");
@@ -126,12 +141,47 @@ public class GestionDesArticleController implements Initializable {
             if (dbConnection != null) {
                 Statement statement =(Statement) dbConnection.createStatement();
                 String query;
-                System.out.println("before");
-                query = "INSERT INTO article (id_article,nom_article,qauntitie,unitie,nom_category)VALUES ("+"'"+""+"','"+t_nom_article+"','"+t_qauntitie+"','"+t_unitie+"','"+t_nom_category+"')";
-               // query = "INSERT INTO `article` (`id_article`, `nom_article`, `qauntitie`, `unitie`, `nom_category`)" + " VALUES (NULL,"+t_nom_article+","+t_qauntitie+","+t_unitie+","+t_nom_category+")";
-               statement.execute(query);
-               System.out.println("after");
-            }
+                query = "SELECT * FROM article";
+                ResultSet resultSet =statement.executeQuery(query);
+                System.out.println("Successfully connected to MySQL database test");
+                while(resultSet.next())
+                    {     
+            int t_id_article= resultSet.getInt("id_article");
+            String t_nom_article=resultSet.getString("nom_article");
+            String t_qauntitie=resultSet.getString("qauntitie");
+            String t_unitie=resultSet.getString("unitie"); 
+            String t_nom_category=resultSet.getString("nom_category");
+            articls.add(new Article(t_id_article,t_nom_article , t_qauntitie, t_unitie, t_nom_category));
+                    }
+           
+            }   
+            id_article.setCellValueFactory(new PropertyValueFactory<>("id_article"));
+        nom_article.setCellValueFactory(new PropertyValueFactory<>("nom_article"));
+        qauntitie.setCellValueFactory(new PropertyValueFactory<>("qauntitie"));
+        unitie.setCellValueFactory(new PropertyValueFactory<>("unitie"));
+        nom_category.setCellValueFactory(new PropertyValueFactory<>("nom_category"));
+        tableview.setItems(getArticles());
+                
+   
     }
+
+    @FXML
+    private void deleteArticle(MouseEvent event) throws SQLException {
+        int s=tableview.getSelectionModel().getSelectedIndex();
+     int id_to_remove =id_article.getCellData(s);
+     String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                statement.execute("delete from article where id_article = " + id_to_remove);
+            }      
+            updateArticle1(event);
+     
+    }
+   
+    
     
 }

@@ -27,12 +27,12 @@
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="648.0" layoutY="331.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="UPDATE" AnchorPane.leftAnchor="648.0" AnchorPane.rightAnchor="94.0">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="648.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#updateArticle1" prefHeight="25.0" prefWidth="68.0" text="UPDATE" AnchorPane.leftAnchor="648.0" AnchorPane.rightAnchor="94.0">
          <padding>
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="648.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="DELELET" AnchorPane.leftAnchor="648.0" AnchorPane.rightAnchor="94.0">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="648.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#deleteArticle" prefHeight="25.0" prefWidth="68.0" text="DELELET" AnchorPane.leftAnchor="648.0" AnchorPane.rightAnchor="94.0">
          <padding>
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
