@@ -7,6 +7,7 @@ package mymagasin.controller;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,13 +19,18 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import mymagasin.entitie.Article;
 
 /**
@@ -33,6 +39,8 @@ import mymagasin.entitie.Article;
  * @author on
  */
 public class GestionDesArticleController implements Initializable {
+     private Scene scene;
+          private Parent root;
 
     @FXML
     private TableView<Article> tableview;
@@ -110,6 +118,21 @@ public class GestionDesArticleController implements Initializable {
         }
         return articls;
     }
+    @FXML
+    public void showMenuPrinsipal(MouseEvent event){
+        try {
+            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
+            scene = new Scene(root);
+            
+            Stage  stage;
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
 
     @FXML
     private void addArticle(MouseEvent event) throws SQLException {
@@ -130,7 +153,6 @@ public class GestionDesArticleController implements Initializable {
     }
     
 
-    @FXML
     private void updateArticle1(MouseEvent event) throws SQLException {
        ObservableList<Article> articls=FXCollections.observableArrayList();
             String url="jdbc:mysql://localhost:3306/mystock";
@@ -161,6 +183,10 @@ public class GestionDesArticleController implements Initializable {
         unitie.setCellValueFactory(new PropertyValueFactory<>("unitie"));
         nom_category.setCellValueFactory(new PropertyValueFactory<>("nom_category"));
         tableview.setItems(getArticles());
+        N_A_txt.setText("");
+     Q_txt.setText("");
+     U_txt.setText("");
+     N_C_txt.setText("");
                 
    
     }
@@ -180,6 +206,34 @@ public class GestionDesArticleController implements Initializable {
             }      
             updateArticle1(event);
      
+    }
+    @FXML
+    private int getSelectedArticle(MouseEvent event) throws SQLException {
+        int s=tableview.getSelectionModel().getSelectedIndex();
+     int id_to_edit =id_article.getCellData(s);
+     N_A_txt.setText(nom_article.getCellData(s));
+     Q_txt.setText(qauntitie.getCellData(s));
+     U_txt.setText(unitie.getCellData(s));
+     N_C_txt.setText(nom_category.getCellData(s));
+     return id_to_edit;
+    }
+
+    @FXML
+    private void editArticle(MouseEvent event) throws SQLException {
+        String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement(); 
+           statement.execute("update article set nom_article= '"+ N_A_txt.getText()+"',"
+                        + "qauntitie = '"+ Integer.valueOf(Q_txt.getText()) +"',"
+                        + "unitie = '"+ U_txt.getText()+"',"
+                        +"nom_category='"+ N_C_txt.getText()+
+                         "' where id_article = " +getSelectedArticle(event));
+                            updateArticle1(event);
+            }
     }
    
     

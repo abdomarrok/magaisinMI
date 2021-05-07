@@ -16,7 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-public class ProfileController extends AnchorPane implements Initializable {
+public class menuPrinsipalController extends AnchorPane implements Initializable {
 
     @FXML
     private TextField user;

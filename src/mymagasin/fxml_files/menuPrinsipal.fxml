@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="Profile" minWidth="500.0" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.ProfileController">
+<AnchorPane id="Profile" minWidth="500.0" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.menuPrinsipalController">
   <children>
     <AnchorPane id="anchorPane1" layoutX="13.0" layoutY="63.0" prefHeight="429.0" prefWidth="787.0" styleClass="top-segment" stylesheets="@../style/Login.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="63.0">
          <children>

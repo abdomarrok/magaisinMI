@@ -9,8 +9,8 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="lib\javax.persistence_2.1.0.v201304241213.jar" size="185043" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.40-bin.jar" size="1030339" download="eager" />
-    <jar href="magasin_MI.jar" size="401132" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.40-bin.jar" size="1030341" download="eager" />
+    <jar href="magasin_MI.jar" size="403506" download="eager" />
   </resources>
 <security>
   <all-permissions/>
