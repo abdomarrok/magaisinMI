@@ -23,16 +23,46 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
           private Parent root;
     @FXML
     private Label service_name;
+    @FXML
+    private Label gestion_des_fournisseur;
+    @FXML
+    private Label bon_demande;
+    @FXML
+    private Label bon_reception;
+    @FXML
+    private Label bon_sortie;
+    @FXML
+    private Label bon_comande;
+    @FXML
+    private Label etat_de_stock;
+    @FXML
+    private Label gestion_des_article;
+    @FXML
+    private AnchorPane menu_APane;
+    @FXML
+    private Label gestion_des_utilisateur;
     
     
     public void initServiceName(String s){
            service_name.setText(s);
+           if(service_name.getText().equals("MG")){
+               bon_comande.setVisible(false);
+               gestion_des_utilisateur.setVisible(false);
+           }
+           if(service_name.getText().equals("SRV")){
+               gestion_des_fournisseur.setVisible(false);
+               bon_reception.setVisible(false);
+               bon_comande.setVisible(false);
+               bon_sortie.setVisible(false);
+               gestion_des_article.setVisible(false); 
+               gestion_des_utilisateur.setVisible(false);
+           }
+          
         
     }      
   
     @Override
     public void initialize(URL location, ResourceBundle resources) { 
-        
     }
     
     @FXML
@@ -40,11 +70,10 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/login.fxml"));
             scene = new Scene(root);
-            
-            
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,12 +84,11 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
      public void showGestionArtice(MouseEvent event){
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_article.fxml"));
-            scene = new Scene(root);
-            
-            
+            scene = new Scene(root);  
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+             stage.setResizable(false);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

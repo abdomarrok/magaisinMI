@@ -131,6 +131,7 @@ public class GestionDesArticleController implements Initializable {
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="Profile" minWidth="500.0" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.menuPrinsipalController">
+<AnchorPane id="Profile" fx:id="menu_APane" minWidth="500.0" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.menuPrinsipalController">
   <children>
     <AnchorPane id="anchorPane1" layoutX="12.0" layoutY="49.0" prefHeight="429.0" prefWidth="787.0" styleClass="top-segment" stylesheets="@../style/Login.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="49.0">
          <children>
             <VBox layoutX="65.5" layoutY="119.5" prefHeight="193.0" prefWidth="240.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="484.0" AnchorPane.topAnchor="118.0">
                <children>
-                  <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="190.0" text="Gestion des Fournisseur">
+                  <Label fx:id="gestion_des_fournisseur" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="190.0" text="Gestion des Fournisseur">
                      <font>
                         <Font name="Consolas" size="12.0" />
                      </font>
@@ -20,7 +21,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon demande">
+                  <Label fx:id="bon_demande" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon demande">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -28,7 +29,7 @@
                         <Font name="Consolas" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon reception">
+                  <Label fx:id="bon_reception" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon reception">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -36,7 +37,7 @@
                         <Font name="Consolas" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon sortie">
+                  <Label fx:id="bon_sortie" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon sortie">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -44,7 +45,7 @@
                         <Font name="Consolas" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon comande">
+                  <Label fx:id="bon_comande" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="bon comande">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -52,7 +53,7 @@
                         <Font name="Consolas" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="etat de stock">
+                  <Label fx:id="etat_de_stock" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="150.0" text="etat de stock">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -60,17 +61,25 @@
                         <Font name="Consolas" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" onMouseClicked="#showGestionArtice" prefHeight="20.0" prefWidth="217.0" text="Gestion des Article">
+                  <Label fx:id="gestion_des_article" alignment="BASELINE_LEFT" contentDisplay="CENTER" onMouseClicked="#showGestionArtice" prefHeight="20.0" prefWidth="217.0" text="Gestion des Article">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Consolas" size="12.0" />
                      </font>
+                  </Label>
+                  <Label fx:id="gestion_des_utilisateur" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="177.0" prefHeight="20.0" prefWidth="217.0" text="Gestion des Utilisateur">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
                   </Label>
                </children>
             </VBox>
-            <Label fx:id="service_name" layoutX="387.0" layoutY="31.0" text="Label" />
+            <Label fx:id="service_name" layoutX="387.0" layoutY="31.0" prefHeight="30.0" prefWidth="39.0" text="Mode" textFill="#00000044" AnchorPane.topAnchor="0.0" />
          </children>
     </AnchorPane>
       <AnchorPane layoutX="13.0" prefHeight="63.0" prefWidth="787.0">
@@ -79,4 +88,7 @@
          </children>
       </AnchorPane>
   </children>
+   <cursor>
+      <Cursor fx:constant="NONE" />
+   </cursor>
 </AnchorPane>
