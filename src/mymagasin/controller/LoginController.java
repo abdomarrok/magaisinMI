@@ -25,7 +25,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mymagasin.DBConnection.DBConnection;
 
 
 /**
@@ -45,6 +44,7 @@ public class LoginController extends AnchorPane implements Initializable {
     private Scene scene;
     private Parent root;
     private Node no;
+    static String service_name="";
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,7 +75,8 @@ public class LoginController extends AnchorPane implements Initializable {
                     {     
             String pass1= resultSet.getString("pass");
             String user1=resultSet.getString("username");
-            System.out.println(user1+"  "+pass1);
+            service_name=resultSet.getString("service_name");
+            System.out.println(user1+"  "+pass1+" "+service_name);
                 if(user.equals(user1)&&pass.equals(pass1)){
                     System.out.println("login secsuss"); 
                         login_test=true;
@@ -96,7 +97,12 @@ public class LoginController extends AnchorPane implements Initializable {
     
     public void showProfile(ActionEvent event){
         try {
-            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
+        root = loader.load();
+        
+        menuPrinsipalController controller = loader.getController();
+        controller.initServiceName(service_name);
             scene = new Scene(root); 
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

@@ -31,6 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import static mymagasin.controller.LoginController.service_name;
 import mymagasin.entitie.Article;
 
 /**
@@ -121,9 +122,12 @@ public class GestionDesArticleController implements Initializable {
     @FXML
     public void showMenuPrinsipal(MouseEvent event){
         try {
-            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
+        root = loader.load();  
+            menuPrinsipalController controller = loader.getController();
             scene = new Scene(root);
-            
+            controller.initServiceName(service_name);
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);

@@ -18,22 +18,24 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 public class menuPrinsipalController extends AnchorPane implements Initializable {
 
-    @FXML
-    private TextField user;
-    
-    @FXML
-    private Label logout;
-    @FXML 
-    private Button save;
-    
- 
+   
          private Scene scene;
           private Parent root;
+    @FXML
+    private Label service_name;
+    
+    
+    public void initServiceName(String s){
+           service_name.setText(s);
+        
+    }      
   
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) { 
+        
     }
     
+    @FXML
     public void showLogin(MouseEvent event){
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/login.fxml"));
@@ -49,6 +51,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         }
       
     }
+    @FXML
      public void showGestionArtice(MouseEvent event){
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_article.fxml"));
