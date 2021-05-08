@@ -86,6 +86,7 @@ public class GestionDesArticleController implements Initializable {
         unitie.setCellValueFactory(new PropertyValueFactory<>("unitie"));
         nom_category.setCellValueFactory(new PropertyValueFactory<>("nom_category"));
         tableview.setItems(getArticles());
+        tableview.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }    
 
    
@@ -188,6 +189,7 @@ public class GestionDesArticleController implements Initializable {
         unitie.setCellValueFactory(new PropertyValueFactory<>("unitie"));
         nom_category.setCellValueFactory(new PropertyValueFactory<>("nom_category"));
         tableview.setItems(getArticles());
+        tableview.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         N_A_txt.setText("");
      Q_txt.setText("");
      U_txt.setText("");
