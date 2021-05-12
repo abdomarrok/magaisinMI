@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/gestion_des_utilisateurs.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="mymagasin.controller.Gestion_des_utilisateursController">
+   <children>
+      <TableView fx:id="tableview" layoutX="169.0" layoutY="131.0" prefHeight="200.0" prefWidth="400.0">
+        <columns>
+          <TableColumn fx:id="usernameColumn" prefWidth="75.0" text="username" />
+          <TableColumn fx:id="first_nameColumn" prefWidth="75.0" text="first_name" />
+            <TableColumn fx:id="last_nameColumn" prefWidth="75.0" text="last_name" />
+            <TableColumn fx:id="passColumn" prefWidth="75.0" text="pass" />
+            <TableColumn fx:id="service_nameColumn" prefWidth="90.0" text="service_name" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

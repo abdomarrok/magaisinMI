@@ -74,7 +74,7 @@
                         <Font name="Consolas" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gestion_des_utilisateur" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="177.0" prefHeight="20.0" prefWidth="217.0" text="Gestion des Utilisateur">
+                  <Label fx:id="gestion_des_utilisateur" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="177.0" onMouseClicked="#showGestionUtilisateur" prefHeight="20.0" prefWidth="217.0" text="Gestion des Utilisateur">
                      <font>
                         <Font name="Consolas" size="12.0" />
                      </font>

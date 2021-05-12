@@ -157,8 +157,7 @@ public class GestiondesfournisseurController implements Initializable {
     }
 
     @FXML
-    private void showMenuPrinsipal(MouseEvent event) {
-    }
+   
     private void updateFournisseur(MouseEvent event) throws SQLException {
        ObservableList<Fournisseur> fournisseur=FXCollections.observableArrayList();
             String url="jdbc:mysql://localhost:3306/mystock";

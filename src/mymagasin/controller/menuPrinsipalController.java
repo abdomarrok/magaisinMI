@@ -113,4 +113,19 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         }
       
     }
+     public void showGestionUtilisateur(MouseEvent event){
+        try {
+            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_utilisateurs.fxml"));
+            scene = new Scene(root);  
+            scene.setCursor(Cursor.HAND);
+            Stage  stage;
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+             stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
 }
