@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -70,6 +71,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/login.fxml"));
             scene = new Scene(root);
+            scene.setCursor(Cursor.HAND);
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -85,6 +87,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_article.fxml"));
             scene = new Scene(root);  
+            scene.setCursor(Cursor.HAND);
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -99,6 +102,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_fournisseur.fxml"));
             scene = new Scene(root);  
+            scene.setCursor(Cursor.HAND);
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);

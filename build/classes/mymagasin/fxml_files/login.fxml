@@ -4,9 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="500.0" styleClass="background" stylesheets="@../style/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.LoginController">
   <children>
@@ -19,11 +22,19 @@
     <TextField id="textField1" fx:id="userId" layoutX="51.0" layoutY="49.0" prefHeight="30.0" prefWidth="400.0" />
       </children>
     </AnchorPane>
-    <Button id="button1" fx:id="login" defaultButton="true" layoutX="40.0" layoutY="390.0" onAction="#processLogin" onMouseClicked="#processLogin" prefHeight="70.0" prefWidth="400.0" text="Login" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="410.0" />
+    <Button id="button1" fx:id="login" defaultButton="true" layoutX="56.0" layoutY="412.0" onAction="#processLogin" onMouseClicked="#processLogin" prefHeight="54.0" prefWidth="244.0" text="Login" textFill="#bc8b2b" wrapText="true" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="412.0">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font></Button>
     <HBox id="hBox1" alignment="CENTER" layoutX="40.0" layoutY="356.0" prefHeight="25.0" prefWidth="418.0" AnchorPane.bottomAnchor="119.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="42.0">
       <children>
         <Label id="label2" fx:id="errorMessage" />
       </children>
     </HBox>
+      <ImageView fitHeight="275.0" fitWidth="316.0" layoutX="112.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="257.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="-17.0">
+         <image>
+            <Image url="@../img/logo%20magaisin%20MI(500-500).png" />
+         </image>
+      </ImageView>
   </children>
 </AnchorPane>

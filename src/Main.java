@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -36,6 +37,7 @@ public class Main extends Application {
         root = FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/login.fxml"));
             scene = new Scene(root);
             stage.setTitle("magsin MI");
+           stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/mymagasin/img/logo-magaisin-MI(500-500).png")));
             stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
             stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
             stage.setScene(scene);

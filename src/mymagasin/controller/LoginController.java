@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.Cursor;
 
 
 /**
@@ -103,6 +104,7 @@ public class LoginController extends AnchorPane implements Initializable {
         menuPrinsipalController controller = loader.getController();
         controller.initServiceName(service_name);
             scene = new Scene(root); 
+            scene.setCursor(Cursor.HAND);
             Stage  stage;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);

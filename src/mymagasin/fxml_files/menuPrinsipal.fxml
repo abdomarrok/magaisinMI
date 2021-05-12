@@ -3,13 +3,18 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="Profile" fx:id="menu_APane" minWidth="500.0" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/Login.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.menuPrinsipalController">
+<AnchorPane id="Profile" fx:id="menu_APane" minWidth="500.0" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/menuPrinsipal.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.menuPrinsipalController">
   <children>
-    <AnchorPane id="anchorPane1" layoutX="12.0" layoutY="49.0" prefHeight="429.0" prefWidth="787.0" styleClass="top-segment" stylesheets="@../style/Login.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="49.0">
+    <AnchorPane id="anchorPane1" layoutX="12.0" layoutY="49.0" prefHeight="429.0" prefWidth="787.0" style="-fx-cursor: hand;" styleClass="top-segment" stylesheets="@../style/menuPrinsipal.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="49.0">
          <children>
             <VBox layoutX="75.5" layoutY="140.5" prefHeight="220.0" prefWidth="270.0" AnchorPane.bottomAnchor="135.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="444.0" AnchorPane.topAnchor="139.0">
                <children>
@@ -79,12 +84,39 @@
                   </Label>
                </children>
             </VBox>
-            <Label fx:id="service_name" layoutX="387.0" layoutY="31.0" prefHeight="30.0" prefWidth="39.0" text="Mode" textFill="#00000044" AnchorPane.topAnchor="0.0" />
+            <Label fx:id="service_name" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="385.0" layoutY="14.0" lineSpacing="1.0" opacity="0.59" prefHeight="30.0" prefWidth="39.0" style="-fx-background-color: #D79F30; -fx-background-radius: 10;" text="Mode" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="14.0">
+               <font>
+                  <Font name="Consolas Bold" size="14.0" />
+               </font></Label>
+            <ImageView fitHeight="170.0" fitWidth="186.0" layoutX="27.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo-magaisin-MI(500-500).png" />
+               </image>
+            </ImageView>
          </children>
     </AnchorPane>
       <AnchorPane layoutX="13.0" prefHeight="63.0" prefWidth="787.0">
          <children>
-            <Label id="logout" alignment="CENTER" contentDisplay="CENTER" layoutX="668.0" layoutY="7.0" onMouseClicked="#showLogin" prefHeight="48.0" prefWidth="109.0" text="logout" />
+            <Label id="logout" alignment="CENTER" contentDisplay="CENTER" layoutX="668.0" layoutY="7.0" onMouseClicked="#showLogin" prefHeight="48.0" prefWidth="109.0" style="-fx-background-color: #D79F30; -fx-background-radius: 10;" text="logout" textAlignment="CENTER">
+               <font>
+                  <Font name="Consolas Bold" size="21.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
          </children>
       </AnchorPane>
   </children>
