@@ -4,9 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/controller/menuPrinsipalController.java</file>
-            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/controller/GestiondesfournisseurController.java</file>
-            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/controller/GestionDesArticleController.java</file>
-            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/Main.java</file>
+            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/style/gestion_des_utilisateurs.css</file>
+            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -33,7 +33,7 @@
     </HBox>
       <ImageView fitHeight="275.0" fitWidth="316.0" layoutX="112.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="257.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="-17.0">
          <image>
-            <Image url="@../img/logo%20magaisin%20MI(500-500).png" />
+            <Image url="@../img/logo-magaisin-MI(500-500).png" />
          </image>
       </ImageView>
   </children>

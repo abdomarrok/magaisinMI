@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/bon_commande.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.BonCommandeController">
+    <AnchorPane id="anchorPane1" layoutX="12.0" layoutY="49.0" prefHeight="429.0" prefWidth="787.0" style="-fx-cursor: hand;" styleClass="top-segment" stylesheets="@../style/menuPrinsipal.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="49.0">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="186.0" layoutX="27.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo-magaisin-MI(500-500).png" />
+               </image>
+            </ImageView>
+            <Label fx:id="gestion_des_fournisseur" alignment="CENTER" contentDisplay="CENTER" layoutX="312.0" layoutY="88.0" prefHeight="17.0" prefWidth="186.0" text="Bon Command" textAlignment="CENTER">
+               <font>
+                  <Font name="Consolas Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="bon_demande" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="122.0" layoutY="125.0" prefHeight="20.0" prefWidth="72.0" text="Date :">
+               <font>
+                  <Font name="Consolas" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="bon_reception" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="543.0" layoutY="125.0" prefHeight="20.0" prefWidth="109.0" text="Destinataire :">
+               <font>
+                  <Font name="Consolas" size="12.0" />
+               </font>
+            </Label>
+         <HBox layoutX="405.0" layoutY="261.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="405.0">
+            <children>
+                  <Label fx:id="nom_article_Label" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="100.0" text="nom article">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="qauntitie_Label" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="100.0" text="Qauntitie">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="unitie_Label" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="100.0" text="Unitie">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+            </children>
+         </HBox>
+         <HBox layoutX="405.0" layoutY="299.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="405.0">
+            <children>
+               <ComboBox fx:id="articleCB" prefHeight="30.0" prefWidth="100.0" />
+               <TextField fx:id="Q_txt" prefHeight="30.0" prefWidth="100.0" />
+               <ComboBox fx:id="U_txt" prefHeight="30.0" prefWidth="100.0" />
+            </children>
+         </HBox>
+         <DatePicker fx:id="DatePiker" layoutX="122.0" layoutY="152.0" />
+         <TextArea fx:id="destinataire_txt" layoutX="544.0" layoutY="145.0" prefHeight="80.0" prefWidth="164.0" />
+         <TableView fx:id="tableview" layoutX="54.0" layoutY="214.0" prefHeight="201.0" prefWidth="242.0">
+           <columns>
+             <TableColumn fx:id="articleColumn" prefWidth="75.0" text="Article" />
+             <TableColumn fx:id="qauntitieColmun" prefWidth="83.0" text="Qauntitie " />
+               <TableColumn fx:id="unitieColmun" prefWidth="83.0" text="Unitie" />
+           </columns>
+         </TableView>
+         <Button layoutX="720.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#add_to_table" text="ADD" />
+         <Button fx:id="print_Btn" layoutX="685.0" layoutY="383.0" mnemonicParsing="false" text="print" />
+         <Button fx:id="save_Btn" layoutX="416.0" layoutY="383.0" mnemonicParsing="false" text="save" />
+         <Button fx:id="validate_Btn" layoutX="523.0" layoutY="383.0" mnemonicParsing="false" text="validate" />
+         <Button layoutX="338.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#removeSelectedArticle" text="remove" />
+         </children>
+    </AnchorPane>
+      <AnchorPane layoutX="13.0" prefHeight="63.0" prefWidth="787.0">
+         <children>
+            <Label id="logout" alignment="CENTER" contentDisplay="CENTER" layoutX="668.0" layoutY="7.0" prefHeight="48.0" prefWidth="109.0" style="-fx-background-color: #D79F30; -fx-background-radius: 10;" text="logout" textAlignment="CENTER">
+               <font>
+                  <Font name="Consolas Bold" size="21.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+         </children>
+      </AnchorPane>
+   <Button layoutX="744.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#showMenuPrinsipal" text="go back &lt;--" />
+</AnchorPane>

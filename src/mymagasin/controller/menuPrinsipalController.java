@@ -17,13 +17,14 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import static mymagasin.controller.LoginController.service_name;
 public class menuPrinsipalController extends AnchorPane implements Initializable {
 
    
          private Scene scene;
           private Parent root;
     @FXML
-    private Label service_name;
+    private Label service_name1;
     @FXML
     private Label gestion_des_fournisseur;
     @FXML
@@ -45,12 +46,12 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
     
     
     public void initServiceName(String s){
-           service_name.setText(s);
-           if(service_name.getText().equals("MG")){
+           service_name1.setText(s);
+           if(service_name.equals("MG")){
                bon_comande.setVisible(false);
                gestion_des_utilisateur.setVisible(false);
            }
-           if(service_name.getText().equals("SRV")){
+           if(service_name.equals("SRV")){
                gestion_des_fournisseur.setVisible(false);
                bon_reception.setVisible(false);
                bon_comande.setVisible(false);
@@ -128,4 +129,21 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         }
       
     }
+      public void showBonCommande(MouseEvent event){
+        try {
+            BonCommandeController controller = new BonCommandeController();
+            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/Bon commande.fxml"));
+            scene = new Scene(root);  
+            scene.setCursor(Cursor.HAND);
+            Stage  stage;
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+             stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
+      
 }
