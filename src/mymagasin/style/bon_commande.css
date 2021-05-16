@@ -19,6 +19,11 @@
 #logout{
     -fx-text-fill: #ffffff;
 }
+Button{
+    -fx-font-size: 14;
+    -fx-text-fill: #D79F30;
+    -fx-font: "Consolas";
+}
 #Profile{
     -fx-background-image:url("/img/magasin-MI-background-810-500.png");
     -fx-cursor: hand;

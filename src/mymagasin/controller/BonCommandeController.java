@@ -12,6 +12,11 @@ import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import static java.time.temporal.TemporalQueries.localDate;
+import java.util.Date;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -24,6 +29,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -82,6 +88,10 @@ public class BonCommandeController implements Initializable {
      ObservableList<BonCommande> boncommande=FXCollections.observableArrayList();
      private Scene scene;
           private Parent root;
+    @FXML
+    private Label gestion_des_fournisseur;
+    @FXML
+    private Label bon_reception;
        /**
      * Initializes the controller class.
      * @param url
@@ -163,10 +173,8 @@ public class BonCommandeController implements Initializable {
         U_txt.setValue("");
     }
   
-    @FXML
      private ObservableList<BonCommande> Add_Articles() {
          
-    
             String t_nom_article=articleCB.getValue();
             String t_qauntitie=Q_txt.getText();
             String t_unitie=U_txt.getValue();
@@ -178,14 +186,13 @@ public class BonCommandeController implements Initializable {
      @FXML
      private void removeSelectedArticle(MouseEvent event){
         int s=tableview.getSelectionModel().getSelectedIndex();
-         articleCB.setValue(articleColumn.getCellData(s));
-        Q_txt.setText(qauntitieColmun.getCellData(s));
-        U_txt.setValue(unitieColmun.getCellData(s));
         tableview.getItems().remove(s);
         articleCB.setValue("");
         Q_txt.setText("");
         U_txt.setValue("");
     }
+     
+     
      @FXML
     public void showMenuPrinsipal(MouseEvent event){
         try {
@@ -204,5 +211,36 @@ public class BonCommandeController implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    }
+
+    @FXML
+    private void getSelectedRow(MouseEvent event) {
+        int s=tableview.getSelectionModel().getSelectedIndex();
+         articleCB.setValue(articleColumn.getCellData(s));
+        Q_txt.setText(qauntitieColmun.getCellData(s));
+        U_txt.setValue(unitieColmun.getCellData(s));
+}
+
+    @FXML
+    private void save_BC_Contenet(MouseEvent event) throws SQLException {
+        
+         String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+         
+        for(int i=0;i<tableview.getItems().size();i++){
+        if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+            statement.execute("INSERT INTO bon_comande (date_de_creation, username, nom_article, qauntitie, unitie, destinataire) VALUES ("
+             + "'" + DatePiker.getValue() + "',"
+             + "'" + LoginController.user + "',"     
+             + "'" + tableview.getItems().get(i).getNom_article() + "',"  
+             + "'" + tableview.getItems().get(i).getQauntitie() + "'," 
+             + "'" + tableview.getItems().get(i).getUnitie() + "'," 
+                    + "'" + destinataire_txt.getText() + "')");     
+        }
+        }
     }
 }

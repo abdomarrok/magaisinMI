@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -17,8 +18,8 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/bon_commande.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.BonCommandeController">
-    <AnchorPane id="anchorPane1" layoutX="12.0" layoutY="49.0" prefHeight="429.0" prefWidth="787.0" style="-fx-cursor: hand;" styleClass="top-segment" stylesheets="@../style/menuPrinsipal.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="49.0">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="810.0" styleClass="background" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.BonCommandeController">
+    <AnchorPane id="anchorPane1" layoutX="12.0" layoutY="50.0" prefHeight="429.0" prefWidth="787.0" style="-fx-cursor: hand;" styleClass="top-segment" stylesheets="@../style/bon_commande.css" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="50.0">
          <children>
             <ImageView fitHeight="170.0" fitWidth="186.0" layoutX="27.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -68,18 +69,37 @@
          </HBox>
          <DatePicker fx:id="DatePiker" layoutX="122.0" layoutY="152.0" />
          <TextArea fx:id="destinataire_txt" layoutX="544.0" layoutY="145.0" prefHeight="80.0" prefWidth="164.0" />
-         <TableView fx:id="tableview" layoutX="54.0" layoutY="214.0" prefHeight="201.0" prefWidth="242.0">
+         <TableView fx:id="tableview" layoutX="54.0" layoutY="214.0" onMouseClicked="#getSelectedRow" prefHeight="201.0" prefWidth="242.0">
            <columns>
              <TableColumn fx:id="articleColumn" prefWidth="75.0" text="Article" />
              <TableColumn fx:id="qauntitieColmun" prefWidth="83.0" text="Qauntitie " />
                <TableColumn fx:id="unitieColmun" prefWidth="83.0" text="Unitie" />
            </columns>
          </TableView>
-         <Button layoutX="720.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#add_to_table" text="ADD" />
-         <Button fx:id="print_Btn" layoutX="685.0" layoutY="383.0" mnemonicParsing="false" text="print" />
-         <Button fx:id="save_Btn" layoutX="416.0" layoutY="383.0" mnemonicParsing="false" text="save" />
-         <Button fx:id="validate_Btn" layoutX="523.0" layoutY="383.0" mnemonicParsing="false" text="validate" />
-         <Button layoutX="338.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#removeSelectedArticle" text="remove" />
+         <Button layoutX="708.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#add_to_table" prefHeight="30.0" prefWidth="65.0" text="ADD">
+            <font>
+               <Font name="Consolas" size="12.0" />
+            </font></Button>
+         <Button fx:id="print_Btn" alignment="CENTER" layoutX="596.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="print" AnchorPane.rightAnchor="140.0">
+            <font>
+               <Font name="Consolas" size="12.0" />
+            </font></Button>
+         <Button fx:id="save_Btn" alignment="CENTER" layoutX="455.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#save_BC_Contenet" prefHeight="25.0" prefWidth="60.0" text="save" AnchorPane.rightAnchor="280.0">
+            <font>
+               <Font name="Consolas" size="12.0" />
+            </font></Button>
+         <Button fx:id="validate_Btn" alignment="CENTER" layoutX="523.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="validate" AnchorPane.rightAnchor="205.0">
+            <font>
+               <Font name="Consolas" size="12.0" />
+            </font></Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#removeSelectedArticle" prefHeight="30.0" prefWidth="65.0" text="REMOVE" textAlignment="CENTER" textFill="#d79f30">
+            <font>
+               <Font name="Consolas" size="12.0" />
+            </font></Button>
+         <Button layoutX="716.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#showMenuPrinsipal" text="go back &lt;--">
+            <font>
+               <Font name="Consolas" size="12.0" />
+            </font></Button>
          </children>
     </AnchorPane>
       <AnchorPane layoutX="13.0" prefHeight="63.0" prefWidth="787.0">
@@ -106,5 +126,8 @@
                </textFill></Label>
          </children>
       </AnchorPane>
-   <Button layoutX="744.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#showMenuPrinsipal" text="go back &lt;--" />
+   <stylesheets>
+      <URL value="@../style/bon_commande.css" />
+      <URL value="@../style/gestion_des_article.css" />
+   </stylesheets>
 </AnchorPane>

@@ -41,6 +41,7 @@ public class LoginController extends AnchorPane implements Initializable {
     Button login;
     @FXML
     Label errorMessage;
+    static String user;
     
     private Scene scene;
     private Parent root;
@@ -58,7 +59,7 @@ public class LoginController extends AnchorPane implements Initializable {
         
       boolean login_test=false;
          try {
-         String user = userId.getText(); String pass = password.getText();
+          user = userId.getText(); String pass = password.getText();
              String url="jdbc:mysql://localhost:3306/mystock";
                 Properties info = new Properties();
              info.put("user", "root");

@@ -19,6 +19,10 @@ public class BonCommande {
         this.unitie = new SimpleStringProperty(unitie);
       
     }
+
+    public BonCommande() {
+        //To change body of generated methods, choose Tools | Templates.
+    }
      public String getNom_article() {
         return nom_article.get();
     }
