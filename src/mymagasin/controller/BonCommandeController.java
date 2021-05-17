@@ -16,7 +16,9 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import static java.time.temporal.TemporalQueries.localDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -43,6 +45,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mymagasin.entitie.BonCommande;
 import static mymagasin.controller.LoginController.service_name;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 /**
  * FXML Controller class
@@ -75,8 +83,6 @@ public class BonCommandeController implements Initializable {
     private Button print_Btn;
     @FXML
     private Button save_Btn;
-    @FXML
-    private Button validate_Btn;
     @FXML
     private Label nom_article_Label;
     @FXML
@@ -243,4 +249,65 @@ public class BonCommandeController implements Initializable {
         }
         }
     }
+
+    @FXML
+    private void printBC(MouseEvent event) throws IOException {
+        String fileName = "bon_command.pdf";
+        PDDocument doc = null;
+        try
+        {
+          doc = new PDDocument();
+          PDPage page = new PDPage();
+          doc.addPage(page);
+          PDPageContentStream contentStream = new PDPageContentStream(doc, page);
+        
+          PDFont pdfFont = PDType1Font.COURIER;
+          float fontSize = 25;
+          float leading = 1.5f * fontSize;
+        
+          PDRectangle mediabox = page.getMediaBox();
+          float margin = 72;
+          float width = mediabox.getWidth() - 2*margin;
+          float startX = mediabox.getLowerLeftX() + margin;
+          float startY = mediabox.getUpperRightY() - margin;
+   
+          
+          List<String> lines = new ArrayList<String>();
+          lines.add("bon command");
+          lines.add("Date :"+ DatePiker.getValue() );
+          lines.add("destinataire: "+destinataire_txt.getText());
+           lines.add("Nom Article" +"Qauntitie"+" Unitie ");
+          lines.add("_______________________________");
+           for(int i=0;i<tableview.getItems().size();i++){ 
+            lines.add(tableview.getItems().get(i).getNom_article()+"|"+ tableview.getItems().get(i).getQauntitie()+"|"+ tableview.getItems().get(i).getUnitie()+"|");
+        }
+           lines.add("_______________________________");
+          lines.add("User :"+ LoginController.user);
+          contentStream.beginText();
+          contentStream.setFont(pdfFont, fontSize);
+          contentStream.moveTextPositionByAmount(startX, startY);            
+          for (String line: lines)
+          {
+            contentStream.drawString(line);
+            contentStream.moveTextPositionByAmount(0, -leading);
+          }
+          contentStream.endText(); 
+          contentStream.close();
+        
+          doc.save(java.time.LocalDate.now().toString()+"("
+                    +java.time.LocalDateTime.now().getHour()+"&"
+                    +java.time.LocalDateTime.now().getMinute()+") "
+                    +fileName);
+           System.out.println("your file created in : "+ System.getProperty("user.dir"));
+        }
+        finally
+        {
+          if (doc != null)
+          {
+            doc.close();
+          }
+        }
+ 
+    }
 }
+

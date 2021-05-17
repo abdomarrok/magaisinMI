@@ -8,12 +8,12 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="lib\commons-logging-1.2.1.1.jar" size="65307" download="eager" />
-    <jar href="lib\fontbox-2.0.2.jar" size="1498390" download="eager" />
-    <jar href="lib\javax.persistence_2.1.0.v201304241213.jar" size="185045" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.40-bin.jar" size="1030342" download="eager" />
-    <jar href="lib\pdfbox-2.0.23.jar" size="2815712" download="eager" />
-    <jar href="magasin_MI.jar" size="88770" download="eager" />
+    <jar href="lib\commons-logging-1.2.1.1.jar" size="65305" download="eager" />
+    <jar href="lib\fontbox-2.0.2.jar" size="1498387" download="eager" />
+    <jar href="lib\javax.persistence_2.1.0.v201304241213.jar" size="185041" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.40-bin.jar" size="1030340" download="eager" />
+    <jar href="lib\pdfbox-2.0.23.jar" size="2815707" download="eager" />
+    <jar href="magasin_MI.jar" size="90223" download="eager" />
   </resources>
 <security>
   <all-permissions/>

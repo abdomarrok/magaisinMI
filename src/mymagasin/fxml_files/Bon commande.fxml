@@ -76,23 +76,19 @@
                <TableColumn fx:id="unitieColmun" prefWidth="83.0" text="Unitie" />
            </columns>
          </TableView>
-         <Button layoutX="708.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#add_to_table" prefHeight="30.0" prefWidth="65.0" text="ADD">
+         <Button layoutX="708.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#add_to_table" prefHeight="30.0" prefWidth="75.0" text="ADD">
             <font>
                <Font name="Consolas" size="12.0" />
             </font></Button>
-         <Button fx:id="print_Btn" alignment="CENTER" layoutX="596.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="print" AnchorPane.rightAnchor="140.0">
+         <Button fx:id="print_Btn" alignment="CENTER" layoutX="563.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#printBC" prefHeight="25.0" prefWidth="60.0" text="print" AnchorPane.rightAnchor="185.0">
             <font>
                <Font name="Consolas" size="12.0" />
             </font></Button>
-         <Button fx:id="save_Btn" alignment="CENTER" layoutX="455.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#save_BC_Contenet" prefHeight="25.0" prefWidth="60.0" text="save" AnchorPane.rightAnchor="280.0">
+         <Button fx:id="save_Btn" alignment="CENTER" layoutX="488.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#save_BC_Contenet" prefHeight="25.0" prefWidth="60.0" text="save" AnchorPane.rightAnchor="260.0">
             <font>
                <Font name="Consolas" size="12.0" />
             </font></Button>
-         <Button fx:id="validate_Btn" alignment="CENTER" layoutX="523.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="validate" AnchorPane.rightAnchor="205.0">
-            <font>
-               <Font name="Consolas" size="12.0" />
-            </font></Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#removeSelectedArticle" prefHeight="30.0" prefWidth="65.0" text="REMOVE" textAlignment="CENTER" textFill="#d79f30">
+         <Button alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#removeSelectedArticle" prefHeight="30.0" prefWidth="75.0" text="REMOVE" textAlignment="CENTER" textFill="#d79f30">
             <font>
                <Font name="Consolas" size="12.0" />
             </font></Button>
