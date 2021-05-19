@@ -43,6 +43,8 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
     private AnchorPane menu_APane;
     @FXML
     private Label gestion_des_utilisateur;
+    @FXML
+    private Label gestion_des_utilisateur1;
     
     
     public void initServiceName(String s){
@@ -99,6 +101,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         }
       
     }
+    @FXML
      public void showGestionFournisseur(MouseEvent event){
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_fournisseur.fxml"));
@@ -114,6 +117,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         }
       
     }
+    @FXML
      public void showGestionUtilisateur(MouseEvent event){
         try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_utilisateurs.fxml"));
@@ -129,6 +133,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
         }
       
     }
+    @FXML
       public void showBonCommande(MouseEvent event){
         try {
             BonCommandeController controller = new BonCommandeController();
@@ -144,6 +149,22 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    }
+
+    @FXML
+    private void showGestionReception(MouseEvent event) {
+         try {
+            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_reception.fxml"));
+            scene = new Scene(root);  
+            scene.setCursor(Cursor.HAND);
+            Stage  stage;
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+             stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
       
 }
