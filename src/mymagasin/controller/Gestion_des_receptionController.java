@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -26,6 +27,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import mymagasin.entitie.Article;
 import mymagasin.entitie.BonLivrison;
 
 /**
@@ -97,8 +100,29 @@ public class Gestion_des_receptionController implements Initializable {
         N_A_CB.setItems(Articls_option);
         N_F_CB.setItems(N_F_option);
        id_BC_CB.setItems(id_BC_option);
-       
+      
                }
+    @FXML
+    private void addBL(MouseEvent event) throws SQLException {
+            String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                statement.execute("INSERT INTO bon_livrison(date_de_livrison,nom_article,qauntitie,unitie,id_bc,nom_fournisseur) VALUES ("
+                + "'" + D_BL_piker.getValue() + "',"
+                + "'" + N_A_CB.getValue() + "',"
+                + "'" + Q_BL_txt.getText() + "',"
+                + "'" + U_BL_txt.getText() + "',"        
+                + "'" + id_BC_CB.getValue() + "',"        
+                + "'" + N_F_CB.getValue() + "')");   
+            }      
+            updateBL(event);
+            tableview.getSelectionModel().selectLast();
+            
+    }
     private ObservableList<String> getNomArticles() {
       ObservableList<String> articls=FXCollections.observableArrayList();
         try {
@@ -214,4 +238,45 @@ public class Gestion_des_receptionController implements Initializable {
         return bl; //To change body of generated methods, choose Tools | Templates.
     }
     
+    private void updateBL(MouseEvent event) throws SQLException {
+          ObservableList<BonLivrison> bl=FXCollections.observableArrayList();
+            String url="jdbc:mysql://localhost:3306/mystock";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "");
+            Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                String query;
+                query = "SELECT * FROM bon_livrison";
+                ResultSet resultSet =statement.executeQuery(query);
+                System.out.println("Successfully connected to MySQL database test");
+                while(resultSet.next())
+                    {     
+            int t_id_bl= resultSet.getInt("id_bl");
+            int t_id_bc= resultSet.getInt("id_bc");
+            Date t_date_livrison=resultSet.getDate("date_de_livrison");
+            String t_nom_article=resultSet.getString("nom_article");
+            String t_qauntitie=resultSet.getString("qauntitie");
+            String t_unitie=resultSet.getString("unitie"); 
+            String t_nom_fournisseur=resultSet.getString("nom_fournisseur");
+            bl.add(new BonLivrison(t_id_bl,t_id_bc,t_date_livrison,t_nom_article,t_qauntitie,t_unitie,t_nom_fournisseur));
+                    }
+            }
+         id_bl.setCellValueFactory(new PropertyValueFactory<>("id_bl"));
+        id_bc.setCellValueFactory(new PropertyValueFactory<>("id_bc"));
+        nom_article.setCellValueFactory(new PropertyValueFactory<>("nom_article"));
+        qauntitie.setCellValueFactory(new PropertyValueFactory<>("qauntitie"));
+        unitie.setCellValueFactory(new PropertyValueFactory<>("unitie"));
+        nom_fournisseur.setCellValueFactory(new PropertyValueFactory<>("nom_fourniseur"));
+        date_livrison.setCellValueFactory(new PropertyValueFactory<>("date_livrison"));
+         tableview.setItems(getBonLivrison());
+        tableview.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+      U_BL_txt.setText("");
+      Q_BL_txt.setText("");  
+      D_BL_piker.setValue(LocalDate.now());
+      N_A_CB.setValue("");
+      N_F_CB.setValue("");
+      id_BC_CB.setValue(0);
+    }
 }

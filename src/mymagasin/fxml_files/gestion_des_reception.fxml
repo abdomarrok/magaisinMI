@@ -168,7 +168,7 @@
                         <Insets bottom="2.0" top="2.0" />
                      </padding>
                   </GridPane>
-                  <Button layoutX="141.0" layoutY="209.0" mnemonicParsing="false" text="insert BL" />
+                  <Button layoutX="141.0" layoutY="209.0" mnemonicParsing="false" onMouseClicked="#addBL" text="insert BL" />
                   <Label layoutX="418.0" layoutY="5.0" prefHeight="39.0" prefWidth="169.0" styleClass="titre_BL" text="Bon Reception" AnchorPane.bottomAnchor="212.0" AnchorPane.rightAnchor="223.0" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font size="18.0" />
