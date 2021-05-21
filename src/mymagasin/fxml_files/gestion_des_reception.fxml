@@ -174,12 +174,12 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="657.0" layoutY="209.0" mnemonicParsing="false" text="Save BR" />
+                  <Button fx:id="saveBR1" layoutX="657.0" layoutY="209.0" mnemonicParsing="false" onMouseClicked="#insertBR" text="Save BR" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="239.0" prefWidth="810.0">
                <children>
-                  <TableView fx:id="tableview" layoutX="20.0" layoutY="13.0" prefHeight="162.0" prefWidth="671.0">
+                  <TableView fx:id="tableview" layoutX="20.0" layoutY="13.0" onMouseClicked="#getSelectedBL" prefHeight="162.0" prefWidth="671.0">
                     <columns>
                       <TableColumn fx:id="id_bl" prefWidth="75.0" text="id bl" />
                       <TableColumn fx:id="date_livrison" prefWidth="143.0" text="date de livrison" />

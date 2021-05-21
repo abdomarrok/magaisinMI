@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/style/bon_commande.css</file>
-            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/fxml_files/Bon%20commande.fxml</file>
-            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/style/gestion_des_reception.css</file>
-            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/style/gestion_des_article.css</file>
+            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/entitie/Article.java</file>
+            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/controller/Gestion_des_receptionController.java</file>
+            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/controller/GestionDesArticleController.java</file>
+            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/entitie/BonLivrison.java</file>
+            <file>file:/C:/Users/on/Documents/NetBeansProjects/magasin%20MI/src/mymagasin/controller/BonCommandeController.java</file>
         </group>
     </open-files>
 </project-private>

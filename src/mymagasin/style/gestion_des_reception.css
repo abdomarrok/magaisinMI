@@ -90,6 +90,9 @@ Button{
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 
 }
+Button:hover{
+    -fx-text-fill: greenyellow;
+}
 #Profile{
     -fx-background-image:url("/img/magasin-MI-background-810-500.png");
     -fx-cursor: hand;
