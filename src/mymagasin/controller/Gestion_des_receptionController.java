@@ -293,6 +293,7 @@ public class Gestion_des_receptionController implements Initializable {
     }
 
     private void setBR(LocalDate dateBL, String nomA, String Qan, String Unitie, String N_F) throws SQLException {
+         ObservableList<Integer> id_BR=FXCollections.observableArrayList();
            String url="jdbc:mysql://localhost:3306/mystock";
             Properties info = new Properties();
             info.put("user", "root");
@@ -300,11 +301,12 @@ public class Gestion_des_receptionController implements Initializable {
             Connection dbConnection = (Connection) DriverManager.getConnection(url, info);
         if (dbConnection != null) {
                 Statement statement =(Statement) dbConnection.createStatement();
-                String query="select id_bl from bon_livrison ORDER BY id_bl DESC LIMIT 1";
+                String query="select id_bl from bon_livrison ORDER BY id_bl DESC";
                 ResultSet resultSet =statement.executeQuery(query);
-                if(resultSet.next()){
-                id_BL_CB.setValue(resultSet.getInt("id_bl"));
+                while(resultSet.next()){
+                    id_BR.add(resultSet.getInt("id_bl"));
                 }
+                id_BL_CB.setItems(id_BR);
                 D_R_piker.setValue(dateBL);
                 N_A_BR_txt.setText(nomA);
                 Q_BR_txt.setText(Qan);
@@ -329,9 +331,7 @@ public class Gestion_des_receptionController implements Initializable {
                 + "'" + U_BR_txt.getText()+ "',"
                 + "'" + id_BL_CB.getValue()+ "',"
                 + "'" + N_F_txt.getText()+ "',"
-                + "'" + N_A_BR_txt.getText() + "')");
-                
-               
+                + "'" + N_A_BR_txt.getText() + "')");     
             } 
             if (dbConnection != null) {
                 Statement statement =(Statement) dbConnection.createStatement();

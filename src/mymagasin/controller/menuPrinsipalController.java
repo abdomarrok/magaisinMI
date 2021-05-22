@@ -44,7 +44,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
     @FXML
     private Label gestion_des_utilisateur;
     @FXML
-    private Label gestion_des_utilisateur1;
+    private Label gestion_des_reception;
     
     
     public void initServiceName(String s){
@@ -155,6 +155,22 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
     private void showGestionReception(MouseEvent event) {
          try {
             root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/gestion_des_reception.fxml"));
+            scene = new Scene(root);  
+            scene.setCursor(Cursor.HAND);
+            Stage  stage;
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+             stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void showBonReception(MouseEvent event) {
+        try {
+            root =FXMLLoader.load(getClass().getResource("/mymagasin/fxml_files/Bon_reception.fxml"));
             scene = new Scene(root);  
             scene.setCursor(Cursor.HAND);
             Stage  stage;
