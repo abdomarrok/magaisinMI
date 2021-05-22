@@ -89,6 +89,7 @@ public class Gestion_des_receptionController implements Initializable {
     
     @FXML
     private Button saveBR1;
+    private int add;
     /**
      * Initializes the controller class.
      * @param url
@@ -328,8 +329,25 @@ public class Gestion_des_receptionController implements Initializable {
                 + "'" + U_BR_txt.getText()+ "',"
                 + "'" + id_BL_CB.getValue()+ "',"
                 + "'" + N_F_txt.getText()+ "',"
-                + "'" + N_A_BR_txt.getText() + "')");   
-            }      
+                + "'" + N_A_BR_txt.getText() + "')");
+                
+               
+            } 
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                 String query;
+                query = "SELECT qauntitie FROM article WHERE article.nom_article ='"+N_A_BR_txt.getText()+"'";
+                ResultSet resultSet =statement.executeQuery(query);
+                if(resultSet.next()){
+                 add=resultSet.getInt("qauntitie");
+                }
+            }
+            if (dbConnection != null) {
+                Statement statement =(Statement) dbConnection.createStatement();
+                add=add+Integer.parseInt(Q_BR_txt.getText());
+                statement.execute("UPDATE article SET qauntitie ='"+add+"' WHERE article.nom_article ='"+N_A_BR_txt.getText()+"'");
+            }
+               
          saveBR1.setTextFill(Color.GREEN);
     }
 
