@@ -90,7 +90,7 @@ public class GestionDesArticleController implements Initializable {
     }    
 
    
-    private ObservableList<Article> getArticles() {
+    private  ObservableList<Article> getArticles() {
          ObservableList<Article> articls=FXCollections.observableArrayList();
         try {
             String url="jdbc:mysql://localhost:3306/mystock";

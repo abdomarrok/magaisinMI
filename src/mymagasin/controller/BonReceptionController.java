@@ -91,11 +91,13 @@ public class BonReceptionController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Articls_option = getNomArticles();
-          articleCB.setItems(Articls_option);
+        articleCB.setItems(Articls_option);
         articleColumn.setCellValueFactory(new PropertyValueFactory<>("nom_article"));
         qauntitieColmun.setCellValueFactory(new PropertyValueFactory<>("qauntitie"));
         unitieColmun.setCellValueFactory(new PropertyValueFactory<>("unitie"));

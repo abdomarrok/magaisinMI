@@ -358,7 +358,7 @@ public class Gestion_des_receptionController implements Initializable {
       Q_BL_txt.setText(qauntitie.getCellData(s));  
          N_A_CB.setValue(nom_article.getCellData(s));
         N_F_CB.setValue(nom_fournisseur.getCellData(s));
-        id_BC_CB.setValue(id_bl.getCellData(s));
+        id_BC_CB.setValue(0);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        D_BL_piker.setValue(LocalDate.parse(df.format(date_livrison.getCellData(s))));
                
