@@ -7,10 +7,15 @@ package mymagasin.controller;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -27,6 +32,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import static mymagasin.controller.LoginController.user;
 import mymagasin.entitie.Article;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.graphics.PDXObject;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
  * FXML Controller class
@@ -142,8 +155,70 @@ public class Bon_demandeController implements Initializable {
                 + "'" + N_A_txt.getText()+ "',"
                 + "'" + Q_txt.getText()+ "',"
                 + "'" + U_txt.getText()+ "')");   
-            }      
-        
+            } 
+            /////////
+        N_A_txt.setText("");
+        Q_txt.setText("");
+        U_txt.setText("");
+        N_C_txt.setText("");
     }
-    
+    @FXML
+    private void printBD(MouseEvent event) throws IOException {
+        String fileName = "bon_Demande.pdf";
+        PDDocument doc = null;
+        try
+        {
+          doc = new PDDocument();
+          PDPage page = new PDPage();
+          doc.addPage(page);
+          
+          PDPageContentStream contentStream = new PDPageContentStream(doc, page);
+        
+          PDFont pdfFont = PDType1Font.COURIER;
+          float fontSize = 25;
+          float leading = 1.5f * fontSize;
+        
+          PDRectangle mediabox = page.getMediaBox();
+          float margin = 72;
+          float width = mediabox.getWidth() - 2*margin;
+          float startX = mediabox.getLowerLeftX() + margin;
+          float startY = mediabox.getUpperRightY() - margin;
+        
+           
+       
+          List<String> lines = new ArrayList<>();
+          lines.add("bon Demand");
+          lines.add(datelabel.getText());
+           lines.add("User :"+ LoginController.user);
+           lines.add("Nom Article" +"Qauntitie"+" Unitie ");
+          lines.add("_______________________________");
+            lines.add(N_A_txt.getText()+" "+Q_txt.getText()+" "+U_txt.getText());
+           lines.add("_______________________________");
+         
+          contentStream.beginText();
+          contentStream.setFont(pdfFont, fontSize);
+          contentStream.moveTextPositionByAmount(startX, startY);            
+          for (String line: lines)
+          {
+            contentStream.drawString(line);
+            contentStream.moveTextPositionByAmount(0, -leading);
+          }
+          contentStream.endText(); 
+          contentStream.close();
+        
+          doc.save(java.time.LocalDate.now().toString()+"("
+                    +java.time.LocalDateTime.now().getHour()+"&"
+                    +java.time.LocalDateTime.now().getMinute()+") "
+                    +fileName);
+           System.out.println("your file created in : "+ System.getProperty("user.dir"));
+        }
+        finally
+        {
+          if (doc != null)
+          {
+            doc.close();
+          }
+        }
+ 
+    }
 }

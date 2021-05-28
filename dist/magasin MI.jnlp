@@ -11,8 +11,8 @@
     <jar href="lib\commons-logging-1.2.1.1.jar" size="65302" download="eager" />
     <jar href="lib\fontbox-2.0.2.jar" size="1498385" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.40-bin.jar" size="1030337" download="eager" />
-    <jar href="lib\pdfbox-2.0.23.jar" size="2815709" download="eager" />
-    <jar href="magasin_MI.jar" size="111126" download="eager" />
+    <jar href="lib\pdfbox-2.0.23.jar" size="2815707" download="eager" />
+    <jar href="magasin_MI.jar" size="956229" download="eager" />
   </resources>
 <security>
   <all-permissions/>

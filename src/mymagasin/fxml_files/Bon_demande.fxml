@@ -43,8 +43,9 @@
             <Label fx:id="Q_Label" text="Qauntitie" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Button layoutX="539.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#confirmDemande" text="confirmer" />
+      <Button layoutX="635.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#confirmDemande" text="confirmer" />
       <Label fx:id="userlabel" layoutX="274.0" layoutY="20.0" text="user" />
       <Label fx:id="datelabel" layoutX="51.0" layoutY="20.0" text="Date:" />
+      <Button layoutX="560.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#printBD" text="print" />
    </children>
 </AnchorPane>
