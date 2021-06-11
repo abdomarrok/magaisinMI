@@ -190,7 +190,7 @@ public class Bon_demandeController implements Initializable {
           lines.add("bon Demand");
           lines.add(datelabel.getText());
            lines.add("User :"+ LoginController.user);
-           lines.add("Nom Article" +"Qauntitie"+" Unitie ");
+           lines.add("Nom Article |" +"Qauntitie"+"| Unitie ");
           lines.add("_______________________________");
             lines.add(N_A_txt.getText()+" "+Q_txt.getText()+" "+U_txt.getText());
            lines.add("_______________________________");
