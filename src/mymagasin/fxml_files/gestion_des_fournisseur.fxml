@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,44 +15,49 @@
 
 <AnchorPane id="AnchorPane" fx:id="background" prefHeight="500.0" prefWidth="810.0" styleClass="background" stylesheets="@../style/gestion_des_fournisseur.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mymagasin.controller.GestiondesfournisseurController">
    <children>
-      <TableView fx:id="tableview" layoutX="171.0" layoutY="184.0" onMouseClicked="#getSelectedFournisseur" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableview" layoutX="167.0" layoutY="229.0" onMouseClicked="#getSelectedFournisseur" prefHeight="200.0" prefWidth="221.0">
         <columns>
           <TableColumn fx:id="firstC" prefWidth="75.0" text="idf" />
-          <TableColumn fx:id="secondC" prefWidth="99.0" text="nom fournisseur" />
+          <TableColumn fx:id="secondC" prefWidth="124.0" text="nom fournisseur" />
         </columns>
       </TableView>
-      <Button fx:id="ADD" alignment="CENTER" contentDisplay="CENTER" layoutX="606.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#addFournisseur" prefHeight="25.0" prefWidth="68.0" text="ADD" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="92.0">
+      <Button fx:id="ADD" alignment="CENTER" contentDisplay="CENTER" layoutX="606.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#addFournisseur" prefHeight="25.0" prefWidth="68.0" text="ADD" textFill="#d79f30" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="92.0">
          <padding>
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
       </Button>
-      <Button fx:id="UPDATE" alignment="CENTER" contentDisplay="CENTER" layoutX="603.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#editFournisseur" prefHeight="25.0" prefWidth="68.0" text="UPDATE" AnchorPane.leftAnchor="603.0" AnchorPane.rightAnchor="89.0">
+      <Button fx:id="UPDATE" alignment="CENTER" contentDisplay="CENTER" layoutX="603.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#editFournisseur" prefHeight="25.0" prefWidth="68.0" text="UPDATE" textFill="#d79f30" AnchorPane.leftAnchor="603.0" AnchorPane.rightAnchor="89.0">
          <padding>
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
       </Button>
-      <Button fx:id="DELETE" alignment="CENTER" contentDisplay="CENTER" layoutX="603.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#deleteFournisseur" prefHeight="25.0" prefWidth="68.0" text="DELELET" AnchorPane.leftAnchor="603.0" AnchorPane.rightAnchor="89.0">
+      <Button fx:id="DELETE" alignment="CENTER" contentDisplay="CENTER" layoutX="603.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#deleteFournisseur" prefHeight="25.0" prefWidth="68.0" text="DELELET" textFill="#d79f30" AnchorPane.leftAnchor="603.0" AnchorPane.rightAnchor="89.0">
          <padding>
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
       </Button>
-      <GridPane layoutX="130.0" layoutY="74.0" prefHeight="59.0" prefWidth="294.0">
+      <GridPane layoutX="131.0" layoutY="141.0" prefHeight="59.0" prefWidth="294.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="116.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="178.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="129.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="165.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="N_F_Label" prefHeight="17.0" prefWidth="101.0" text="Nom Fournisseur" />
+            <Label fx:id="N_F_Label" prefHeight="17.0" prefWidth="130.0" text="Nom Fournisseur" />
             <TextField fx:id="N_F_txt" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="579.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#showMenuPrinsipal2" prefHeight="27.0" prefWidth="96.0" text="GO back &lt;--">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="579.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#showMenuPrinsipal2" prefHeight="27.0" prefWidth="96.0" text="GO back &lt;--" textFill="#d79f30">
          <padding>
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
       </Button>
+      <ImageView fitHeight="170.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo-magaisin-MI(500-500).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

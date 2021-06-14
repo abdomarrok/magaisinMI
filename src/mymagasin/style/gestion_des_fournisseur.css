@@ -6,6 +6,17 @@
         linear-gradient(#20262b, #191d22),
         radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
 }
+.label {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 14;
+    -fx-text-fill: #D79F30;
+    -fx-effect: dropshadow( one-pass-box , rgba(0, 0, 0, 0.6), 0, 0.0 , 0 , 1 );
+}
+.label:hover {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 14;
+    -fx-text-fill: #ffffff;
+}
 .table-view {
     -fx-background-color: transparent;
 }

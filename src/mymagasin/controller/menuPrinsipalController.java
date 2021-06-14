@@ -60,6 +60,7 @@ public class menuPrinsipalController extends AnchorPane implements Initializable
                bon_sortie.setVisible(false);
                gestion_des_article.setVisible(false); 
                gestion_des_utilisateur.setVisible(false);
+               gestion_des_reception.setVisible(false);
            }
           
         

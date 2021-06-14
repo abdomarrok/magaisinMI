@@ -28,6 +28,9 @@
     -fx-background-radius: 5px 5px 5px 5px;
     -fx-text-alignment: left;
     -fx-background-insets: 0 0px 0 0;
+    -fx-font-size: 14;
+    -fx-text-fill: #D79F30;
+    -fx-font-size: "Consolas";
    
 }
 .table-view .column-header {
@@ -73,4 +76,18 @@
 .table-row-cell:highlighted {
     -fx-background-color: #81c483;
     -fx-background-radius: 15px;
+}
+.label {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 14;
+    -fx-text-fill: #D79F30;
+    -fx-effect: dropshadow( one-pass-box , rgba(0, 0, 0, 0.6), 0, 0.0 , 0 , 1 );
+}
+.titre_BL{
+ -fx-font-size: 18;   
+}
+.label:hover {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 14;
+    -fx-text-fill: #ffffff;
 }

@@ -19,7 +19,7 @@
 #logout{
     -fx-text-fill: #ffffff;
 }
-Button{
+.btn{
     -fx-font-size: 14;
     -fx-text-fill: #D79F30;
     -fx-font-size: "Consolas";
