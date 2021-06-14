@@ -190,6 +190,11 @@
                         <TableColumn fx:id="nom_fournisseur" prefWidth="127.0" text="nom fournisseur" />
                     </columns>
                   </TableView>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="707.0" layoutY="148.0" mnemonicParsing="false" onMouseClicked="#showMenuPrinsipal2" prefHeight="27.0" prefWidth="96.0" text="GO back &lt;--" textFill="#d79f30">
+                     <padding>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Button>
                </children></AnchorPane>
          </children>
       </VBox>

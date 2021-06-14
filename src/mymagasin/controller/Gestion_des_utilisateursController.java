@@ -34,7 +34,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import static mymagasin.controller.LoginController.service_name;
-import mymagasin.entitie.Fournisseur;
 import mymagasin.entitie.Service;
 import mymagasin.entitie.User;
 

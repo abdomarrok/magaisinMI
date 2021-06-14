@@ -61,5 +61,10 @@
             <Image url="@../img/logo-magaisin-MI(500-500).png" />
          </image>
       </ImageView>
+      <Button layoutX="645.0" layoutY="439.0" mnemonicParsing="false" onMouseClicked="#showMenuPrinsipal3" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944);" styleClass="btn" text="go back&lt;--">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </Button>
    </children>
 </AnchorPane>

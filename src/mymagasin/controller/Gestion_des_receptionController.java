@@ -7,6 +7,7 @@ package mymagasin.controller;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,7 +25,11 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -34,6 +39,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import static mymagasin.controller.LoginController.service_name;
 import mymagasin.entitie.BonLivrison;
 
 /**
@@ -90,6 +97,8 @@ public class Gestion_des_receptionController implements Initializable {
     @FXML
     private Button saveBR1;
     private int add;
+     private Scene scene;
+          private Parent root;
     /**
      * Initializes the controller class.
      * @param url
@@ -135,6 +144,8 @@ public class Gestion_des_receptionController implements Initializable {
             
             
     }
+    
+   
     private ObservableList<String> getNomArticles() {
       ObservableList<String> articls=FXCollections.observableArrayList();
         try {
@@ -363,4 +374,22 @@ public class Gestion_des_receptionController implements Initializable {
        D_BL_piker.setValue(LocalDate.parse(df.format(date_livrison.getCellData(s))));
                
 }
+     public void showMenuPrinsipal2(MouseEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
+        root = loader.load();  
+            menuPrinsipalController controller = loader.getController();
+            scene = new Scene(root);
+            controller.initServiceName(service_name);
+            Stage  stage;
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
 }

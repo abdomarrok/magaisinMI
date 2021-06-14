@@ -7,8 +7,6 @@ package mymagasin.controller;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.DriverManager;
@@ -23,13 +21,19 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import static mymagasin.controller.LoginController.service_name;
 import static mymagasin.controller.LoginController.user;
 import mymagasin.entitie.Article;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -38,8 +42,6 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.graphics.PDXObject;
-import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
  * FXML Controller class
@@ -81,6 +83,8 @@ public class Bon_demandeController implements Initializable {
     @FXML
     private Label datelabel;
     private int s;
+    private Scene scene;
+          private Parent root;
 
     /**
      * Initializes the controller class.
@@ -161,6 +165,24 @@ public class Bon_demandeController implements Initializable {
         Q_txt.setText("");
         U_txt.setText("");
         N_C_txt.setText("");
+    }
+     public void showMenuPrinsipal3(MouseEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/mymagasin/fxml_files/menuPrinsipal.fxml"));
+        root = loader.load();  
+            menuPrinsipalController controller = loader.getController();
+            scene = new Scene(root);
+            controller.initServiceName(service_name);
+            Stage  stage;
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
     }
     @FXML
     private void printBD(MouseEvent event) throws IOException {

@@ -36,7 +36,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import static mymagasin.controller.BonReceptionController.Unitie_option;
 import static mymagasin.controller.LoginController.service_name;
 import mymagasin.entitie.BonCommande;
 import org.apache.pdfbox.pdmodel.PDDocument;
